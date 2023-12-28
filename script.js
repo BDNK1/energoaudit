@@ -7,32 +7,30 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to parse CSV data and create a chart
 function parseCSVAndCreateChart(csvData) {
     
+    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
     const data = {
-        'month': [1,3,4,5,],
-        'month2': [1,3,4,5,],
+        2021: [10, 43, 20, 25, 30, 35, 40, 45, 20, 55, 60, 65],
+        2022: [12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78],
+        2023: [15, 22, 10, 36, 43, 1, 57, 64, 18, 78, 85, 92]
     };
     
-    // Assuming the first row of CSV contains labels
-    const labels = Object.keys(data);
-    
-    // Extract data from CSV
-    const vals =  Object.values(data);
-    
     // Create chart
-    createChart(labels, vals);
+    createChart(labels, data);
 }
 function createChart(labels, data) {
     console.log(labels,data);
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const chart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: labels,
-            datasets: data.map((rowData, index) => ({
-                label: `Dataset ${index + 1}`,
-                data: rowData,
-                backgroundColor: getRandomColor(),
+            datasets: Object.keys(data).map(year => ({
+                label: `Year ${year}`,
+                borderColor: getRandomColor(),
+                data: data[year],
+                fill: false,
             })),
         },
         options: {
@@ -42,7 +40,7 @@ function createChart(labels, data) {
             },
             title: {
                 display: true,
-                text: 'CSV Data Diagrams',
+                text: 'Line Chart with Multiple Years',
             },
         },
     });
