@@ -11,7 +11,6 @@ function parseCSVAndCreateChart(csvData) {
         'month': [1,3,4,5,],
         'month2': [1,3,4,5,],
     };
-    console.log("helo");
     
     // Assuming the first row of CSV contains labels
     const labels = Object.keys(data);
@@ -26,7 +25,7 @@ function createChart(labels, data) {
     console.log(labels,data);
     const ctx = document.getElementById('myChart').getContext('2d');
 
-    new Chart(ctx, {
+    const chart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
@@ -47,6 +46,7 @@ function createChart(labels, data) {
             },
         },
     });
+    chart.resize(1000,1000);
 }
 
 // Function to generate random colors

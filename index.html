@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
     <!-- Include PapaParse library -->
     <script src="https://d3js.org/d3-dsv.v2.min.js"></script>
 
     <script src="script.js"></script> <!-- Move the script tag to the end of the head section -->
 </head>
 <body>
-    <div class="header"></div>
-    <div class="left-sidebar"></div>
+    <div class="header">
+        <li><a href="index.html">Назва підприємства</a></li>
+        <li><a href="index.html">Первинна інформація</a></li>
+        <li><a href="index.html">Енергобаланс</a></li>
+        <li><a href="index.html">Питоме енергоспоживання</a></li>
+    </div>
+    <div class="left-sidebar">
+        <li><a href="index.html">Графік 1</a></li>
+        <li><a href="index.html">Графік 2</a></li>
+        <li><a href="index.html">Графік 3</a></li>
+    </div>
     <div class="main">
         <canvas id="myChart" width="400" height="200"></canvas>
     </div>
-    <div class="right-sidebar"></div>
+    <div class="right-sidebar">Коментарі Розрахунки</div>
 </body>
 </html>
